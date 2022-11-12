@@ -4,19 +4,18 @@ import {
   PersonOutline,
   ShoppingBagOutlined,
   MenuOutlined,
-  SearchOutlined
+  SearchOutlined,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { shades } from "../../theme";
 import { setIsCartOpen } from "../../state";
 
-const Navbar = () => {
+function Navbar() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const cart = useSelector(state => state.cart.cart);
+  const cart = useSelector((state) => state.cart.cart);
 
   return (
-    // Elder box
     <Box
       display="flex"
       alignItems="center"
@@ -29,7 +28,6 @@ const Navbar = () => {
       left="0"
       zIndex="1"
     >
-      {/* Inner Box */}
       <Box
         width="80%"
         margin="auto"
@@ -37,7 +35,6 @@ const Navbar = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        {/* BOX for logo */}
         <Box
           onClick={() => navigate("/")}
           sx={{ "&:hover": { cursor: "pointer" } }}
@@ -62,13 +59,13 @@ const Navbar = () => {
             color="secondary"
             invisible={cart.length === 0}
             sx={{
-              "& .MuiVadge-badge": {
+              "& .MuiBadge-badge": {
                 right: 5,
                 top: 5,
                 padding: "0 4px",
                 height: "14px",
-                minWidth: "13px"
-              }
+                minWidth: "13px",
+              },
             }}
           >
             <IconButton
@@ -85,6 +82,6 @@ const Navbar = () => {
       </Box>
     </Box>
   );
-};
+}
 
 export default Navbar;

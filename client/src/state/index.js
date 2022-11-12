@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   isCartOpen: false,
   cart: [],
-  items: []
+  items: [],
 };
 
 export const cartSlice = createSlice({
@@ -13,38 +13,37 @@ export const cartSlice = createSlice({
     setItems: (state, action) => {
       state.items = action.payload;
     },
-    // Add to cart Function
+
     addToCart: (state, action) => {
       state.cart = [...state.cart, action.payload.item];
     },
 
-    // remove from cart function
     removeFromCart: (state, action) => {
-      state.cart = state.cart.filter(item => item.id !== action.payload.id);
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
     },
-    // increase item in cart
+
     increaseCount: (state, action) => {
-      state.cart = state.cart.map(item => {
+      state.cart = state.cart.map((item) => {
         if (item.id === action.payload.id) {
           item.count++;
         }
         return item;
       });
     },
-    // decrease item in cart
+
     decreaseCount: (state, action) => {
-      state.cart = state.cart.map(item => {
+      state.cart = state.cart.map((item) => {
         if (item.id === action.payload.id && item.count > 1) {
           item.count--;
         }
         return item;
       });
     },
-    // prettier-ignore
+
     setIsCartOpen: (state) => {
       state.isCartOpen = !state.isCartOpen;
-    }
-  }
+    },
+  },
 });
 
 export const {
@@ -52,7 +51,8 @@ export const {
   addToCart,
   removeFromCart,
   increaseCount,
-  decreaseCount
+  decreaseCount,
+  setIsCartOpen,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

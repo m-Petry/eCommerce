@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Badge, Box, IconButton } from "@mui/material";
+import { Badge, Box, IconButton, Typography } from "@mui/material";
 import {
   PersonOutline,
   ShoppingBagOutlined,
@@ -40,7 +40,9 @@ function Navbar() {
           sx={{ "&:hover": { cursor: "pointer" } }}
           color={shades.secondary[500]}
         >
-          ECOMMER
+          <Typography variant="h2">
+            Zalya
+          </Typography>
         </Box>
         <Box
           display="flex"

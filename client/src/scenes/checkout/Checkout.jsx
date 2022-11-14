@@ -120,10 +120,10 @@ const Checkout = () => {
         const requestBody = {
             userName: [values.firstName, values.lastName].join(" "),
             email: values.email,
-            products: cart.map(({ id, count }) => ({
+            products: cart.map(({ id, count, }) => ({
                 id,
                 count,
-            }))
+            })),
         };
 
         const response = await fetch("http://localhost:1337/api/orders", {
@@ -210,14 +210,12 @@ const Checkout = () => {
                                     borderRadius: 0,
                                     padding: "15px 40px"
                                 }}
-                                onClick={() => setActiveStep(activeStep - 1)}
                             >{isFirstStep ? "Next" : "Place Order"}</Button>
                         </Box>
                     </form>
                 )}
             </Formik>
         </Box>
-
     </Box>;
 };
 

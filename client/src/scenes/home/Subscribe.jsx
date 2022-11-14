@@ -24,6 +24,7 @@ const Subscribe = () => {
                     sx={{ ml: 1, flex: 1 }}
                     placeholder="Enter e-mail"
                     onChange={(e) => setEmail(e.target.value)}
+                    value={email}
                 />
                 <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
                 <Typography sx={{ p: "10px", ":hover": { cursor: "pointer" } }}>
